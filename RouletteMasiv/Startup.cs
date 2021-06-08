@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using RouletteMasiv.Models;
 
 namespace RouletteMasiv
 {
@@ -25,6 +27,8 @@ namespace RouletteMasiv
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<RouletteContext>(opt =>
+               opt.UseInMemoryDatabase("RouletteDB"));
             services.AddControllers();
         }
 
