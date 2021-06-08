@@ -82,8 +82,10 @@ namespace RouletteMasiv.Controllers
             _context.RouletteItems.Add(rouletteItem);
             await _context.SaveChangesAsync();
 
-            //return CreatedAtAction("GetRouletteItem", new { id = rouletteItem.Id }, rouletteItem);
+            
+            //return CreatedAtAction(nameof(GetRouletteItem), new { id = rouletteItem.Id }, rouletteItem);
             return CreatedAtAction(nameof(GetRouletteItem), new { id = rouletteItem.Id }, rouletteItem);
+            
         }
 
         // DELETE: api/RouletteItems/5
